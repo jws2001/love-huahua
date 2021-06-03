@@ -26,10 +26,13 @@ const aixinIcon = [{
     color: 'rgb(140, 158, 255)'
 }]
 
-const clientW = document.body.clientWidth;
-const clientH = document.body.clientHeight;
-console.log(clientW, clientH)
+let clientW = window.innerWidth;
+let clientH = window.innerHeight;
 
+window.onresize = function () {
+    clientW = window.innerWidth;
+    clientH = window.innerHeight;
+}
 function CreateAixin(left, speedX, speedY, top) {
     this.dom = document.createElement('div');
     this.left = left;
@@ -60,7 +63,6 @@ function createIcon() {
     dom.dom.classList.add('aixin');
     dom.dom.style.left = dom.left;
     dom.dom.style.top = dom.top;
-    console.log(parseInt(dom.dom.style.top))
     return dom;
 }
 const aixinDom = new Array(52);

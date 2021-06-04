@@ -9,8 +9,6 @@ function color() {
     main.style.color = colorString;
 }
 
-
-
 //创建爱心
 const aixinIcon = [{
     icon: 'icon-aixin',
@@ -55,7 +53,7 @@ CreateAixin.prototype.move = function () {
 
 
 function createIcon() {
-    const dom = new CreateAixin(`${radom(0, clientW)}px`, radom(2, 10), radom(2, 10), '-20px');
+    const dom = new CreateAixin(`${radom(0, clientW)}px`, radom(2, 10), radom(2, 10), `${radom(-20, 10)}px`);
     const info = aixinIcon[radom(0, 4)];
     dom.dom.classList.add(info.icon);
     dom.dom.style.color = info.color;
@@ -79,13 +77,4 @@ setInterval(() => {
         item.move()
     })
 
-}, 30)
-
-// function move() {
-//     aixinDom.forEach(item => {
-//         item.move()
-//     })
-//     requestAnimationFrame(move)
-// }
-
-// move()
+}, 1000 / 30)

@@ -53,7 +53,7 @@ CreateAixin.prototype.move = function () {
 
 
 function createIcon() {
-    const dom = new CreateAixin(`${radom(0, clientW)}px`, radom(2, 10), radom(2, 10), `${radom(-20, 10)}px`);
+    const dom = new CreateAixin(`${radom(0, clientW)}px`, radom(2, 10), radom(2, 10), `${radom(-30,-20 )}px`);
     const info = aixinIcon[radom(0, 4)];
     dom.dom.classList.add(info.icon);
     dom.dom.style.color = info.color;
@@ -70,11 +70,19 @@ for (let i = 0; i < 52; i++) {
 }
 //移动函数
 
+let flag = true;
 
 
-setInterval(() => {
-    aixinDom.forEach(item => {
-        item.move()
-    })
+//播放音乐
+const audio = document.getElementById('audio');
 
-}, 1000 / 30)
+window.onclick = function(res){
+    if(!flag) return;
+    flag = false;
+    setInterval(() => {
+        aixinDom.forEach(item => {
+            item.move()
+        })
+    }, 1000 / 30)
+    audio.play()
+}
